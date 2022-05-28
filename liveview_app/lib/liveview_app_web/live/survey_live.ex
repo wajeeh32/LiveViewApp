@@ -8,10 +8,17 @@ defmodule LiveviewAppWeb.SurveyLive do
   #   <h1> Current Survey </h1>
   #   """
   # end
+
   def mount(_params, %{"user_token" => user_token}, socket) do
     current_user = Accounts.get_user_by_session_token(user_token)
     {:ok,
       socket
-      |> assign(:current_user, current_user)}
+      |> assign(:current_user, current_user)
+      |> assign(:counter, 0)}
+    end
+
+    def handle_event("increment", %{"id" => _id} , socket) do
+
+      {:noreply, assign(socket, :counter, socket.assigns.counter + 2)}
   end
 end
