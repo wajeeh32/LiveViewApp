@@ -8,10 +8,10 @@ defmodule LiveviewAppWeb.SampleLive.CounterLive do
   end
 
   def update(assigns, socket) do
-    IO.inspect assigns.content, label: "assigns from counter live"
+    IO.inspect(assigns.content, label: "assigns from counter live")
 
     {:ok,
-    socket
-    |> assign(:content, assigns.content)}
+     socket
+     |> assign(:content, assigns.content)}
   end
 end

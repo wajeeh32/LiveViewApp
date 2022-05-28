@@ -79,6 +79,7 @@ defmodule LiveviewAppWeb.Router do
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
     live "/survey", SurveyLive, :index
+    live "/game", GameLive
   end
 
   scope "/", LiveviewAppWeb do
